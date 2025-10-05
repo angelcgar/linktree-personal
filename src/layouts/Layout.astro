@@ -1,22 +1,49 @@
+---
+import SEO from "@/components/SEO.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+
+import staff from "@/data/staff.json";
+
+import LinkSocialNetwork from "@/components/LinkSocialNetwork.astro";
+
+import "@/styles/global.css";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<SEO />
 	</head>
 	<body>
-		<slot />
+		<ThemeToggle />
+
+		<div class="linktree">
+			<h1>Mi Linktree</h1>
+			<!-- Avatar -->
+			<img src="https://unavatar.io/angelcgar" alt="Mi Avatar" class="avatar" />
+
+			<!-- Descripción -->
+			<p class="description">
+				¡Hola! Soy Angel. Aquí encontrarás todos mis enlaces importantes.
+			</p>
+
+			<!-- Enlaces -->
+			{
+				staff.professions.map((profecion) => {
+					return (
+						<article>
+							<h2>{profecion.professions_title}</h2>
+							{profecion.links.map((link) => (
+								<LinkSocialNetwork
+									title={link.name}
+									url={link.url}
+									icon={link.icon}
+								/>
+							))}
+						</article>
+					);
+				})
+			}
+		</div>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

@@ -1,0 +1,58 @@
+{
+  "name": "Angel Contreras",
+  "description": "Mi Linktree personal con enlaces a mis redes sociales y proyectos.",
+  "professions": [
+    {
+      "professions_title": "Programador",
+      "links": [
+        {
+          "id": 1,
+          "name": "Instagram",
+          "url": "https://www.instagram.com/contrerasc0de/",
+          "icon": "fab fa-instagram"
+        },
+        {
+          "id": 2,
+          "name": "Twitter",
+          "url": "https://x.com/AngelCo99356422",
+          "icon": "fab fa-twitter"
+        },
+        {
+          "id": 3,
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/in/angel-contreras-garcia/",
+          "icon": "fab fa-linkedin"
+        },
+        {
+          "id": 4,
+          "name": "YouTube",
+          "url": "https://www.youtube.com/@contreras_dev",
+          "icon": "fab fa-youtube"
+        },
+        {
+          "id": 5,
+          "name": "Blog",
+          "url": "https://blog-angelcgar.vercel.app/",
+          "icon": "fas fa-blog"
+        },
+        {
+          "id": 6,
+          "name": "GitHub",
+          "url": "https://github.com/angelcgar",
+          "icon": "fab fa-github"
+        }
+      ]
+    },
+    {
+      "professions_title": "Ilustrador",
+      "links": [
+        {
+          "id": 1,
+          "name": "Instagram",
+          "url": "https://www.instagram.com/contrerasc0de/",
+          "icon": "fab fa-instagram"
+        }
+      ]
+    }
+  ]
+}

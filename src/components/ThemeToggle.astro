@@ -1,0 +1,75 @@
+---
+
+---
+
+<button class="theme-toggle" id="themeToggle">
+  <i class="fas fa-moon" aria-hidden="true"></i>
+</button>
+
+<script>
+  const themeToggle = document.getElementById(
+    "themeToggle",
+  ) as HTMLButtonElement;
+  const body = document.body;
+  const icon = themeToggle.querySelector("i") as HTMLElement;
+
+  // Verificar preferencia del sistema
+  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Verificar si hay una preferencia guardada en localStorage
+  const currentTheme = localStorage.getItem("theme");
+
+  if (currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches)) {
+    body.classList.add("dark-mode");
+    icon.classList.replace("fa-moon", "fa-sun");
+  }
+
+  // Cambiar tema al hacer clic
+  themeToggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      icon.classList.replace("fa-moon", "fa-sun");
+      localStorage.setItem("theme", "dark");
+    } else {
+      icon.classList.replace("fa-sun", "fa-moon");
+      localStorage.setItem("theme", "light");
+    }
+  });
+
+  // Escuchar cambios en la preferencia del sistema
+  prefersDarkScheme.addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      if (e.matches) {
+        body.classList.add("dark-mode");
+        icon.classList.replace("fa-moon", "fa-sun");
+      } else {
+        body.classList.remove("dark-mode");
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+    }
+  });
+</script>
+
+<style>
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .theme-toggle:hover {
+    background-color: var(--primary-hover);
+  }
+</style>
